@@ -1,0 +1,59 @@
+
+:root {
+  --critical: #ff3e3e;
+  --high: #ff6b6b;
+  --moderate: #ffb347;
+  --low: #4CAF50;
+  --minimal: #a5d6a7;
+  --none: #e0e0e0;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+}
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.pie-chart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.pie-chart:hover {
+  transform: scale(1.05);
+}
+.pie-chart::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color) 0% 50%,
+    #e0e0e0 50% 100%
+  );
+}
+.pie-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #333;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.chart-container {
+  animation: fadeIn 1s ease-in-out;
+}
